@@ -6,8 +6,22 @@ body {
 
 .doctorCardContainer {
   text-align: left;
-  margin-left: 25%;
-  margin-right: 10%;
+  width: 75%;
   border: 1px solid tomato;
   margin-bottom: 50px;
+}
+
+.body {
+  display: flex;
+  width: 100%;
+}
+
+.filter {
+  width: 25%;
+  border: 1px solid maroon;
+}
+
+.searchForm{
+  height: 200px;
+  border: 1px solid blueviolet;
 }

@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './App.css';
 import Search from '../src/components/Search';
-import Ads from '../src/components/Ads';
+
+import Filter from '../src/components/Filter';
 
 function App() {
   return (
     <div className="App">
-      <Ads />
-      <Search />
+      <div className="body">
+        <Filter />
+        <Search />
+      </div>
     </div>
   );
 }

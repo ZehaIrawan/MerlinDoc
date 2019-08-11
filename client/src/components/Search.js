@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import data from '../data/data';
 import DoctorCard from '../components/DoctorCard';
+import Ads from '../components/Ads';
 
 const Search = () => {
-  const [doctor, setDoctor] = useState(data);
   return (
     <div>
-      <h1 style={{ color: 'blue',marginLeft:'25%' }}>Search</h1>
+      <Ads />
+      <h1 style={{ color: 'blue', marginLeft: '25%' }}>Search</h1>
       {data[0].data.map(doctor => (
         <DoctorCard
           key={doctor.profile.slug}
@@ -17,11 +18,8 @@ const Search = () => {
           address={`${doctor.practices[0].visit_address.street}, ${
             doctor.practices[0].visit_address.city
           }, ${doctor.practices[0].visit_address.state_long} `}
-          specialties={doctor.specialties.map(s => (
-            `${ s.actor} ,`
-           ))}
+          specialties={doctor.specialties.map(s => `${s.actor} ,`)}
           phoneNumber={doctor.practices[0].phones[0].number}
-
         />
       ))}
     </div>
