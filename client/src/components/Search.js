@@ -6,21 +6,24 @@ import axios from 'axios';
 
 const Search = () => {
   const [doctor, setDoctor] = useState();
+  const [count, setCount] = useState(0);
 
-  async function fetchMyAPI() {
-    let response = await axios.get('https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=CA&gender=female&sort=rating-desc&skip=0&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7')
-    // console.log(response[0].data)
-    setDoctor(response)
-  }
+  useEffect(async() => {
+   const res = await axios.get('https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=CA&gender=female&sort=rating-desc&skip=0&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7')
+    setDoctor(res)
+    // console.log(res)
+  },[]);
 
-  useEffect(() => {
-    fetchMyAPI();
-  }, );
-
-  // console.log(doctor.data);
-
+  console.log(doctor)
   return (
     <div>
+       <button
+        onClick={() => {
+          setCount(count + 1);
+        }}
+      >
+        increase
+      </button>
       <Ads />
       <h1 style={{ color: 'blue', marginLeft: '25%' }}>Search</h1>
       {data[0].data.map(doctor => (
