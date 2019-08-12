@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './App.css';
 import Search from '../src/components/Search';
 
