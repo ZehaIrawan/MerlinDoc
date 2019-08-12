@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import data from '../data/data';
+// import data from '../data/data';
 import DoctorCard from '../components/DoctorCard';
 import Ads from '../components/Ads';
 import axios from 'axios';
