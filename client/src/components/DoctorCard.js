@@ -9,11 +9,11 @@ const DoctorCard = props => {
       <p>{specialties}</p>
       <h3>Address</h3>
       <p>{address}</p>
-      <button>View Profile</button>
+      <button className="button">View Profile</button>
       <h4>Call {phoneNumber}</h4>
-      <div>
+      <button className="button">
         <a href="http://google.com">View on map</a>
-      </div>
+      </button>
       <br />
     </div>
   );

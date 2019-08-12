@@ -5,28 +5,29 @@ import Ads from '../components/Ads';
 import axios from 'axios';
 
 const Search = () => {
-  const [doctor, setDoctor] = useState();
-  const [count, setCount] = useState(0);
+  const [doctor, setDoctor] = useState([]);
+  const [IsLoading,setIsLoading] = useState(true)
 
-  useEffect(async() => {
-   const res = await axios.get('https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=CA&gender=female&sort=rating-desc&skip=0&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7')
-    setDoctor(res)
-    // console.log(res)
-  },[]);
+  useEffect(() => {
+    async function fetchData() {
+      const res = await axios.get(
+        'https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=NY&gender=female&sort=rating-desc&skip=0&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7',
+      );
+      setDoctor(res)
+      setIsLoading(false)
+    }
+    fetchData();
+  }, []);
 
-  console.log(doctor)
+  if (IsLoading) {
+    return <p>Loading ...</p>;
+  }
+  console.log(doctor.data.data)
   return (
     <div>
-       <button
-        onClick={() => {
-          setCount(count + 1);
-        }}
-      >
-        increase
-      </button>
       <Ads />
       <h1 style={{ color: 'blue', marginLeft: '25%' }}>Search</h1>
-      {data[0].data.map(doctor => (
+      {doctor.data.data.map(doctor => (
         <DoctorCard
           key={doctor.profile.slug}
           name={`${doctor.profile.first_name} ${doctor.profile.last_name}, ${
