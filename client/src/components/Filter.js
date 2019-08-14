@@ -4,7 +4,7 @@ import SearchForm from './SearchForm';
 const Filter = () => {
   return (
     <div className="filter">
-      <SearchForm />
+      {/* <SearchForm /> */}
       I'm a filter
     </div>
   );
