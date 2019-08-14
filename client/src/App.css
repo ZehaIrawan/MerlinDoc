@@ -6,7 +6,7 @@ body {
 
 .doctorCardContainer {
   text-align: left;
-  width: 75%;
+  width: 100%;
   border: 1px solid tomato;
   margin-bottom: 50px;
 }
@@ -54,8 +54,12 @@ body {
 }
 
 /* map links */
-.button a{
+.button a {
   text-decoration: none;
   color: #fff;
 }
 
+.search {
+  width: 100%;
+  margin-right: 50px;
+}

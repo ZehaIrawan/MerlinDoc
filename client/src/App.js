@@ -6,12 +6,10 @@ import Filter from '../src/components/Filter';
 
 function App() {
   return (
-    <div className="App">
       <div className="body">
         <Filter />
         <Search />
       </div>
-    </div>
   );
 }
 

@@ -12,6 +12,8 @@ const Search = () => {
     'https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=NY&gender=female&sort=rating-desc&skip=0&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7',
   );
 
+  // const [countyState, countyState] = useState('NY');
+
   useEffect(() => {
     async function fetchData() {
       const res = await axios.get(url);
@@ -21,23 +23,31 @@ const Search = () => {
     fetchData();
   }, [url]);
 
-
-
-
   if (IsLoading) {
     return <p>Loading ...</p>;
   }
 
   return (
-    <div>
+    <div className="search">
       <div className="searchForm">
         <h2>Search Form</h2>
         <br />
-        <input placeholder="Your State" type="text" value={keyword}  onChange={event => setKeyword(event.target.value)}/>
+        <input
+          placeholder="Your State"
+          type="text"
+          value={keyword}
+          onChange={event => setKeyword(event.target.value)}
+        />
         <br />
-        <button className="button" type="submit"   onClick={() =>
-          setUrl(`https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=${keyword}&gender=female&sort=rating-desc&skip=0&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7`)
-        }>
+        <button
+          className="button"
+          type="submit"
+          onClick={() =>
+            setUrl(
+              `https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=${keyword}&gender=female&sort=rating-desc&skip=0&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7`,
+            )
+          }
+        >
           Search
         </button>
       </div>
