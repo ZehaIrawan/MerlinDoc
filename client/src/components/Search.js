@@ -4,14 +4,13 @@ import Ads from '../components/Ads';
 // import data from '../data/data';
 import DoctorCard from '../components/DoctorCard';
 
-const Search = () => {
+const Search = props => {
   const [doctor, setDoctor] = useState([]);
   const [IsLoading, setIsLoading] = useState(true);
-  const [keyword, setKeyword] = useState();
-  const [url, setUrl] = useState(
-    'https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=NY&gender=female&sort=rating-desc&skip=0&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7',
-  );
 
+  const { url } = props;
+
+  console.log(url);
   // const [countyState, countyState] = useState('NY');
 
   useEffect(() => {
@@ -29,29 +28,6 @@ const Search = () => {
 
   return (
     <div className="search">
-      <div className="searchForm">
-        <h2>Search Form</h2>
-        <br />
-        <input
-          placeholder="Your State"
-          type="text"
-          value={keyword}
-          onChange={event => setKeyword(event.target.value)}
-        />
-        <br />
-        <button
-          className="button"
-          type="submit"
-          onClick={() =>
-            setUrl(
-              `https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=${keyword}&gender=female&sort=rating-desc&skip=0&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7`,
-            )
-          }
-        >
-          Search
-        </button>
-      </div>
-      <Ads />
       <h1 style={{ color: 'blue', marginLeft: '25%' }}>Search</h1>
       {doctor.data.data.map(doctor => (
         <DoctorCard
@@ -67,6 +43,7 @@ const Search = () => {
           phoneNumber={doctor.practices[0].phones[0].number}
         />
       ))}
+      <Ads />
     </div>
   );
 };
