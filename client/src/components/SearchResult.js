@@ -1,12 +1,12 @@
 import React from 'react';
 import Filter from './Filter';
 import Search from './Search';
-import SearchForm from './SearchForm';
+import SearchBar from './SearchBar';
 
 const SearchResult = () => {
   return (
     <div>
-     {/* <SearchForm /> */}
+     <SearchBar />
       <Search />
     </div>
   );

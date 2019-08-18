@@ -28,12 +28,12 @@ const SearchForm = () => {
     setRedirect(true);
   };
 
-  if (redirect) {
-    return <Redirect to={{
-      pathname: '/results',
-      state: { url: url }
-    }} />;
-  }
+  // if (redirect) {
+  //   return <Redirect to={{
+  //     pathname: '/results',
+  //     state: { url: url }
+  //   }} />;
+  // }
 
   return (
     <div>
