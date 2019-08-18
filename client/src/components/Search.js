@@ -1,17 +1,18 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Ads from '../components/Ads';
-// import data from '../data/data';
+import Filter from '../components/Filter'
 import DoctorCard from '../components/DoctorCard';
 
 const Search = props => {
   const [doctor, setDoctor] = useState([]);
   const [IsLoading, setIsLoading] = useState(true);
 
-  const { url } = props;
+  let { url } = props;
 
-  console.log(url);
-  // const [countyState, countyState] = useState('NY');
+ url = (url === undefined) ?  url = 'https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=NY&gender=female&sort=rating-desc&skip=0&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7'  : url
+
+
 
   useEffect(() => {
     async function fetchData() {
