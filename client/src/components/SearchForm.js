@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import addUrl from './redux/actions';
 
 const SearchForm = () => {
   const [formData, setFormData] = useState({
@@ -7,33 +8,27 @@ const SearchForm = () => {
     sympton: '',
   });
 
-  const [url, setUrl] = useState(
-    'https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=NY&gender=female&sort=rating-desc&skip=0&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7',
-  );
+  const [url, setUrl] = useState('');
 
   const [redirect, setRedirect] = useState(false);
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = async e => {
+  const onSubmit = e => {
     e.preventDefault();
-    setUrl(
-      `https://api.betterdoctor.com/2016-03-01/doctors?query=${
-        formData.sympton
-      }&location=${
-        formData.location
-      }&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7`,
-    );
-    setRedirect(true);
   };
 
-  if (redirect) {
-    return <Redirect to={{
-      pathname: '/results',
-      state: { url: url }
-    }} />;
-  }
+  // if (redirect) {
+  //   return (
+  //     <Redirect
+  //       to={{
+  //         pathname: '/results',
+  //         state: { url: url },
+  //       }}
+  //     />
+  //   );
+  // }
 
   return (
     <div>
@@ -74,4 +69,12 @@ const SearchForm = () => {
   );
 };
 
-export default SearchForm;
+const mapStateToProps = state => ({
+  ...state,
+});
+
+const mapDispatchToProps = dispatch => ({
+  addUrl: () => dispatch(addUrl),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);

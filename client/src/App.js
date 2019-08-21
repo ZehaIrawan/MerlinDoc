@@ -1,21 +1,25 @@
-import React,{Fragment} from 'react';
-import './App.css';
-import SearchForm from '../src/components/SearchForm';
+import React, { Fragment } from 'react';
+import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Store from '../src/components/redux/store';
+import SearchForm from '../src/components/SearchForm';
+import './App.css';
+import SearchResult from './components/SearchResult';
 
-import SearchResult from './components/SearchResult'
+const store = Store()
 
 function App() {
   return (
-    <Router>
-    <Fragment>
-      <Route exact path="/" component={SearchForm} />
-      <Switch>
-      <Route exact path="/results" component={SearchResult} />
-      </Switch>
-    </Fragment>
-</Router>
-
+    <Provider store={store}>
+      <Router>
+        <Fragment>
+          <Switch>
+          <Route exact path="/" component={SearchForm} />
+            <Route exact path="/results" component={SearchResult} />
+          </Switch>
+        </Fragment>
+      </Router>
+    </Provider>
   );
 }
 
