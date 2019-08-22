@@ -8,9 +8,9 @@ const SearchForm = () => {
     sympton: '',
   });
 
-  const [url, setUrl] = useState('');
+  // const [url, setUrl] = useState('');
 
-  const [redirect, setRedirect] = useState(false);
+  // const [redirect, setRedirect] = useState(false);
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
