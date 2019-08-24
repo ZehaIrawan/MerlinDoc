@@ -1,13 +1,8 @@
-const initialState = {
-  query:{
-    location: 'NY',
-    sympton: 'Flu'
-  }
-};
+const initialState = {};
 function query(state = initialState, action) {
   switch (action.type) {
-    case 'INC':
-      return { ...state, count: state.count + 1 };
+    case 'UPDATE_INPUT':
+      return { ...state, query:action.payload };
     case 'DEC':
       return { ...state, count: state.count - 1 };
     case 'RESET':

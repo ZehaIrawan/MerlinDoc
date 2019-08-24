@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
+import React,{useState} from 'react';
 import { connect } from 'react-redux';
-import addUrl from './redux/actions';
+import { decrement, increment, reset, updateInput } from './redux/actions';
 
-const SearchForm = () => {
+const SearchForm = ({ handleChange, updateInput }) => {
   const [formData, setFormData] = useState({
     location: '',
     sympton: '',
   });
 
-  // const [url, setUrl] = useState('');
-
-  // const [redirect, setRedirect] = useState(false);
-
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  // const [redirect, setRedirect] = useState(false);
+
+  handleChange = e => {
+    updateInput(e.target.value);
+  };
 
   const onSubmit = e => {
     e.preventDefault();
+    updateInput(formData)
   };
 
   // if (redirect) {
@@ -40,7 +42,6 @@ const SearchForm = () => {
             placeholder="Your State"
             name="location"
             type="text"
-            value={formData.location}
             onChange={e => onChange(e)}
           />
           <br />
@@ -48,7 +49,6 @@ const SearchForm = () => {
             placeholder="Your Symptom"
             name="sympton"
             type="text"
-            value={formData.sympton}
             onChange={e => onChange(e)}
           />
           <button
@@ -70,11 +70,17 @@ const SearchForm = () => {
 };
 
 const mapStateToProps = state => ({
-  ...state,
+  count: state.search.query,
 });
 
-const mapDispatchToProps = dispatch => ({
-  addUrl: () => dispatch(addUrl),
-});
+const mapDispatchToProps = {
+  decrement,
+  increment,
+  reset,
+  updateInput,
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SearchForm);
