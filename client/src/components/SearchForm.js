@@ -1,8 +1,9 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { decrement, increment, reset, updateInput } from './redux/actions';
+import { Redirect } from 'react-router-dom';
+import {  updateInput } from './redux/actions';
 
-const SearchForm = ({ handleChange, updateInput }) => {
+const SearchForm = ({  updateInput }) => {
   const [formData, setFormData] = useState({
     location: '',
     sympton: '',
@@ -10,27 +11,23 @@ const SearchForm = ({ handleChange, updateInput }) => {
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  // const [redirect, setRedirect] = useState(false);
-
-  handleChange = e => {
-    updateInput(e.target.value);
-  };
+  const [redirect, setRedirect] = useState(false);
 
   const onSubmit = e => {
     e.preventDefault();
-    updateInput(formData)
+    updateInput(formData);
+    setRedirect(true);
   };
 
-  // if (redirect) {
-  //   return (
-  //     <Redirect
-  //       to={{
-  //         pathname: '/results',
-  //         state: { url: url },
-  //       }}
-  //     />
-  //   );
-  // }
+  if (redirect) {
+    return (
+      <Redirect
+        to={{
+          pathname: '/results',
+        }}
+      />
+    );
+  }
 
   return (
     <div>
@@ -43,6 +40,7 @@ const SearchForm = ({ handleChange, updateInput }) => {
             name="location"
             type="text"
             onChange={e => onChange(e)}
+            required
           />
           <br />
           <input
@@ -50,6 +48,7 @@ const SearchForm = ({ handleChange, updateInput }) => {
             name="sympton"
             type="text"
             onChange={e => onChange(e)}
+            // required
           />
           <button
             className="button"
@@ -74,9 +73,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  decrement,
-  increment,
-  reset,
   updateInput,
 };
 

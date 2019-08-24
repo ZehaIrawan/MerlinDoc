@@ -1,39 +1,32 @@
-import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { useState,useEffect } from 'react';
+import { connect } from 'react-redux';
+import { updateInput } from './redux/actions';
 
-const SearchForm = () => {
+const SearchBar = ({ query, updateInput }) => {
+  useEffect(() => {
+    // // Update the document title using the browser API
+    // document.title = `You clicked ${count} times`;
+  });
+
   const [formData, setFormData] = useState({
     location: '',
     sympton: '',
   });
 
-  const [url, setUrl] = useState(
-    'https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=NY&gender=female&sort=rating-desc&skip=0&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7',
-  );
-
-  const [redirect, setRedirect] = useState(false);
-
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = async e => {
-    e.preventDefault();
-    setUrl(
-      `https://api.betterdoctor.com/2016-03-01/doctors?query=${
-        formData.sympton
-      }&location=${
-        formData.location
-      }&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7`,
-    );
-    setRedirect(true);
-  };
+  const [url, setUrl] = useState(
+    `https://api.betterdoctor.com/2016-03-01/doctors?&location=${query.location}&gender=female&sort=rating-desc&skip=0&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7`,
+  );
 
-  // if (redirect) {
-  //   return <Redirect to={{
-  //     pathname: '/results',
-  //     state: { url: url }
-  //   }} />;
-  // }
+  const onSubmit = e => {
+    e.preventDefault();
+    updateInput(formData);
+    setUrl(
+      `https://api.betterdoctor.com/2016-03-01/doctors?&location=${query.location}&gender=female&sort=rating-desc&skip=0&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7`,
+    )
+  };
 
   return (
     <div>
@@ -45,15 +38,14 @@ const SearchForm = () => {
             placeholder="Your State"
             name="location"
             type="text"
-            value={formData.location}
             onChange={e => onChange(e)}
+            required
           />
           <br />
           <input
             placeholder="Your Symptom"
             name="sympton"
             type="text"
-            value={formData.sympton}
             onChange={e => onChange(e)}
           />
           <button
@@ -74,4 +66,14 @@ const SearchForm = () => {
   );
 };
 
-export default SearchForm;
+const mapStateToProps = state => ({
+  query: state.search.query,
+});
+
+const mapDispatchToProps = {
+  updateInput,
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SearchBar);
