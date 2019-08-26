@@ -1,33 +1,65 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.doctorCardContainer {
+  text-align: left;
+  width: 100%;
+  border: 1px solid tomato;
+  margin-bottom: 50px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.body {
+  display: flex;
+  width: 100%;
+}
+
+.filter {
+  width: 25%;
+  border: 1px solid maroon;
+}
+
+.searchForm {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 200px;
+  border: 1px solid blueviolet;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.button {
+  padding: 5px 15px;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px #999;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button:hover {
+  background-color: #3e8e41;
+}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+/* map links */
+.button a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.search {
+  width: 100%;
+  margin-right: 50px;
 }

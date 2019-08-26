@@ -1,29 +1,59 @@
-import React from 'react';
-import data from '../data/data';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import Ads from '../components/Ads';
+import DoctorCard from '../components/DoctorCard';
+import Filter from '../components/Filter';
+import { connect } from 'react-redux';
+import { updateInput } from './redux/actions';
 
-const Search = () => {
-  console.log(data[0].data[0].practices[0]);
+
+const Search = ({query}) => {
+  const [doctor, setDoctor] = useState([]);
+  const [IsLoading, setIsLoading] = useState(true);
+
+  let url = `https://api.betterdoctor.com/2016-03-01/doctors?&location=${query.location}&gender=female&sort=rating-desc&skip=0&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7`
+
+  useEffect(() => {
+    async function fetchData() {
+      const res = await axios.get(url);
+      setDoctor(res);
+      setIsLoading(false);
+    }
+    fetchData();
+  }, [url]);
+
+  if (IsLoading) {
+    return <p>Loading ...</p>;
+  }
+
   return (
-    <div>
-      Search
-      {data[0].data.map(e => (
-        <div key={e.profile.slug}>
-          <p>
-            {`${e.profile.first_name} ${e.profile.last_name}, ${
-              e.profile.title
-            }`}
-          </p>
-          <p>{`${e.practices[0].visit_address.street}, ${
-            e.practices[0].visit_address.city
-          }, ${e.practices[0].visit_address.state_long} `}</p>
-
-          <h1>Call {e.practices[0].phones[0].number}</h1>
-
-          <a href="google.com">View on map</a>
-        </div>
+    <div className="search">
+      <h1 style={{ color: 'blue', marginLeft: '25%' }}>Search</h1>
+      {doctor.data.data.map(doctor => (
+        <DoctorCard
+          key={doctor.profile.slug}
+          name={`${doctor.profile.first_name} ${doctor.profile.last_name}, ${
+            doctor.profile.title
+          }`}
+          profileImg={doctor.profile.image_url}
+          address={`${doctor.practices[0].visit_address.street}, ${
+            doctor.practices[0].visit_address.city
+          }, ${doctor.practices[0].visit_address.state_long} `}
+          specialties={doctor.specialties.map(s => `${s.actor} ,`)}
+          phoneNumber={doctor.practices[0].phones[0].number}
+        />
       ))}
+      <Ads />
     </div>
   );
 };
 
-export default Search;
+
+const mapStateToProps = state => ({
+  query: state.search.query,
+});
+
+const mapDispatchToProps = {
+  updateInput,
+};
+export default connect(mapStateToProps,mapDispatchToProps)(Search);
