@@ -1,11 +1,11 @@
 import React from 'react'
 
-const DoctorCard = () => {
+const Footer = () => {
   return (
     <div>
-      
+      Footer
     </div>
   )
 }
 
-export default DoctorCard
+export default Footer

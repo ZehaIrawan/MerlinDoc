@@ -1,0 +1,4 @@
+[build]
+base = "merlindoc/"
+publish = "merlindoc/build/"
+command = "npm run build"
