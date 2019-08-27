@@ -6,12 +6,14 @@ import Filter from '../components/Filter';
 import { connect } from 'react-redux';
 import { updateInput } from './redux/actions';
 
+const API_KEY = process.env.REACT_APP_API_KEY
+const API_URL = process.env.REACT_APP_API_URL
 
 const Search = ({query}) => {
   const [doctor, setDoctor] = useState([]);
   const [IsLoading, setIsLoading] = useState(true);
 
-  let url = `https://api.betterdoctor.com/2016-03-01/doctors?&location=${query.location}&gender=female&sort=rating-desc&skip=0&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7`
+  let url = `${API_URL}&location=${query.location}&gender=female&sort=rating-desc&skip=0&limit=10&user_key=${API_KEY}`
 
   useEffect(() => {
     async function fetchData() {

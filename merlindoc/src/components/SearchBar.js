@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import {  updateInput } from './redux/actions';
+import { updateInput } from './redux/actions';
 
-const SearchForm = ({  updateInput }) => {
+const API_KEY = process.env.REACT_APP_API_KEY
+const API_URL = process.env.REACT_APP_API_URL
+
+const SearchBar = ({ query, updateInput }) => {
+  useEffect(() => {
+    // // Update the document title using the browser API
+    // document.title = `You clicked ${count} times`;
+  });
+
   const [formData, setFormData] = useState({
     location: '',
     sympton: '',
@@ -11,23 +18,18 @@ const SearchForm = ({  updateInput }) => {
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  const [redirect, setRedirect] = useState(false);
+
+  const [url, setUrl] = useState(
+    `${API_URL}&location=${query.location}&gender=female&sort=rating-desc&skip=0&limit=10&user_key=${API_KEY}`,
+  );
 
   const onSubmit = e => {
     e.preventDefault();
     updateInput(formData);
-    setRedirect(true);
-  };
-
-  if (redirect) {
-    return (
-      <Redirect
-        to={{
-          pathname: '/results',
-        }}
-      />
+    setUrl(
+      `${API_URL}&location=${query.location}&gender=female&sort=rating-desc&skip=0&limit=10&user_key=${API_KEY}`,
     );
-  }
+  };
 
   return (
     <div>
@@ -48,16 +50,11 @@ const SearchForm = ({  updateInput }) => {
             name="sympton"
             type="text"
             onChange={e => onChange(e)}
-            // required
           />
           <button
             className="button"
             type="submit"
-            // onClick={() =>
-            //   setUrl(
-            //     `https://api.betterdoctor.com/2016-03-01/doctors?query=${formData.sympton}&location=${formData.location}&limit=10&user_key=54d8891c53833b37e5ea78a241baa9f7`,
-            //   )
-            // }
+
           >
             Search
           </button>
@@ -69,14 +66,13 @@ const SearchForm = ({  updateInput }) => {
 };
 
 const mapStateToProps = state => ({
-  count: state.search.query,
+  query: state.search.query,
 });
 
 const mapDispatchToProps = {
   updateInput,
 };
-
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(SearchForm);
+)(SearchBar);
