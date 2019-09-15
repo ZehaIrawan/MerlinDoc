@@ -10,6 +10,17 @@ const SearchForm = ({ updateInput }) => {
     sympton: '',
   });
 
+  // React.useEffect(() => {
+  //   const data = localStorage.getItem('search');
+  //   if (data) {
+  //     setFormData(JSON.parse(data));
+  //   }
+  // }, []);
+
+  // React.useEffect(() => {
+  //   localStorage.setItem('search', JSON.stringify(formData));
+  // });
+
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
   const [redirect, setRedirect] = useState(false);
