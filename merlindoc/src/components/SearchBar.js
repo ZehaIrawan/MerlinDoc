@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { updateInput } from './redux/actions';
+import AutoCompleteText from './auto/AutoCompleteText'
 
 const API_KEY = process.env.REACT_APP_API_KEY
 const API_URL = process.env.REACT_APP_API_URL
@@ -33,29 +34,28 @@ const SearchBar = ({ query, updateInput }) => {
 
   return (
     <div>
-      <div className="searchForm">
+       <div className="searchForm">
         <h2>Search Form</h2>
+        <AutoCompleteText />
+        {/* <HideableText text="Dynamic Text!" /> */}
         <br />
         <form className="form" onSubmit={e => onSubmit(e)}>
-          <input
-            placeholder="Your State"
+          {/* <input
+            placeholder="New York, NY"
             name="location"
             type="text"
             onChange={e => onChange(e)}
             required
-          />
+          /> */}
           <br />
           <input
             placeholder="Your Symptom"
             name="sympton"
             type="text"
             onChange={e => onChange(e)}
+            // required
           />
-          <button
-            className="button"
-            type="submit"
-
-          >
+          <button className="button" type="submit">
             Search
           </button>
         </form>

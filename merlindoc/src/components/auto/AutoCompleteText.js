@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { updateInput } from '../redux/actions';
 
-const AutoCompleteText = () => {
+const AutoCompleteText = ({ updateInput }) => {
   const [items, setItems] = useState([
     `Alabama, AL`,
     `Alaska, AK`,
@@ -88,16 +88,35 @@ const AutoCompleteText = () => {
   const selectSuggestion = value => {
     setSuggest([]);
     setText(value);
+    updateInput({location: value.slice(-2)});
   };
 
   return (
     <div className="suggest-container">
       <div className="AutoCompleteText">
-        <input value={text} onChange={handleChange} type="text" name="" id="" />
+        <input
+          value={text}
+          onChange={handleChange}
+          type="text"
+          name=""
+          id=""
+          placeholder="New York, NY"
+        />
         {renderSuggestions()}
       </div>
     </div>
   );
 };
 
-export default connect()(AutoCompleteText);
+const mapStateToProps = state => ({
+  count: state.search.query,
+});
+
+const mapDispatchToProps = {
+  updateInput,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(AutoCompleteText);

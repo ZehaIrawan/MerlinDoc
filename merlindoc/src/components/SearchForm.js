@@ -16,7 +16,7 @@ const SearchForm = ({ updateInput }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    updateInput(formData);
+    // updateInput(formData);
     setRedirect(true);
   };
 
@@ -34,17 +34,17 @@ const SearchForm = ({ updateInput }) => {
     <div>
       <div className="searchForm">
         <h2>Search Form</h2>
-        {/* <AutoCompleteText /> */}
+        <AutoCompleteText />
         {/* <HideableText text="Dynamic Text!" /> */}
         <br />
         <form className="form" onSubmit={e => onSubmit(e)}>
-          <input
-            placeholder="Your State"
+          {/* <input
+            placeholder="New York, NY"
             name="location"
             type="text"
             onChange={e => onChange(e)}
             required
-          />
+          /> */}
           <br />
           <input
             placeholder="Your Symptom"
