@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import {  updateInput } from './redux/actions';
+import AutoCompleteText from './auto/AutoCompleteText';
+import { updateInput } from './redux/actions';
 
-const SearchForm = ({  updateInput }) => {
+const SearchForm = ({ updateInput }) => {
   const [formData, setFormData] = useState({
     location: '',
     sympton: '',
@@ -33,6 +34,8 @@ const SearchForm = ({  updateInput }) => {
     <div>
       <div className="searchForm">
         <h2>Search Form</h2>
+        {/* <AutoCompleteText /> */}
+        {/* <HideableText text="Dynamic Text!" /> */}
         <br />
         <form className="form" onSubmit={e => onSubmit(e)}>
           <input
@@ -50,10 +53,7 @@ const SearchForm = ({  updateInput }) => {
             onChange={e => onChange(e)}
             // required
           />
-          <button
-            className="button"
-            type="submit"
-          >
+          <button className="button" type="submit">
             Search
           </button>
         </form>

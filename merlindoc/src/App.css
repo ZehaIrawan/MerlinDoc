@@ -63,3 +63,35 @@ body {
   width: 100%;
   margin-right: 50px;
 }
+
+.AutoCompleteText {
+  width: 50%;
+  border: 1px solid grey;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 4px 1px rgba(0, 0, 0, 0.18);
+}
+
+.AutoCompleteText input {
+  width: 99%;
+  border: none;
+  outline: none;
+  padding: 10px 5px;
+}
+
+.AutoCompleteText ul::before {
+  content: '';
+}
+
+.AutoCompleteText ul {
+  list-style: none;
+  text-align: left;
+}
+
+.AutoCompleteText li {
+  padding: 10px 5px;
+}
+
+.suggest-container {
+  margin: 0 auto;
+  width: 100%;
+  margin-left: 150px;
+}
