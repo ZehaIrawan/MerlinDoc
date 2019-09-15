@@ -88,19 +88,20 @@ const AutoCompleteText = ({ updateInput }) => {
   const selectSuggestion = value => {
     setSuggest([]);
     setText(value);
-    updateInput({location: value.slice(-2)});
+    updateInput({ location: value.slice(-2) });
   };
 
   return (
     <div className="suggest-container">
       <div className="AutoCompleteText">
+        <label htmlFor="">Your State</label>
         <input
           value={text}
           onChange={handleChange}
           type="text"
           name=""
           id=""
-          placeholder="New York, NY"
+          placeholder=" New York, NY"
         />
         {renderSuggestions()}
       </div>

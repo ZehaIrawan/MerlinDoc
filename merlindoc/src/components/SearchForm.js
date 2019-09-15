@@ -75,7 +75,7 @@ const SearchForm = ({ updateInput }) => {
 };
 
 const mapStateToProps = state => ({
-  count: state.search.query,
+ query: state.search.query,
 });
 
 const mapDispatchToProps = {

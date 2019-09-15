@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import AutoCompleteText from './auto/AutoCompleteText';
 import { updateInput } from './redux/actions';
-import AutoCompleteText from './auto/AutoCompleteText'
 
 const API_KEY = process.env.REACT_APP_API_KEY
 const API_URL = process.env.REACT_APP_API_URL
@@ -26,7 +26,7 @@ const SearchBar = ({ query, updateInput }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    updateInput(formData);
+    // updateInput(formData);
     setUrl(
       `${API_URL}&location=${query.location}&gender=female&sort=rating-desc&skip=0&limit=10&user_key=${API_KEY}`,
     );
@@ -66,7 +66,7 @@ const SearchBar = ({ query, updateInput }) => {
 };
 
 const mapStateToProps = state => ({
-  query: state.search.query,
+ query: state.search.query,
 });
 
 const mapDispatchToProps = {
