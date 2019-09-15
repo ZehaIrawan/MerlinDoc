@@ -95,3 +95,12 @@ body {
   width: 100%;
   margin-left: 150px;
 }
+
+.lost {
+  text-align: center;
+}
+
+.lost img {
+  height: 400px;
+  margin-left: 2%;
+}
