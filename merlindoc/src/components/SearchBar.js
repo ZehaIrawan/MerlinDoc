@@ -48,13 +48,13 @@ const SearchBar = ({ query, updateInput }) => {
             required
           /> */}
           <br />
-          <input
+          {/* <input
             placeholder="Your Symptom"
             name="sympton"
             type="text"
             onChange={e => onChange(e)}
             // required
-          />
+          /> */}
           <button className="button" type="submit">
             Search
           </button>
