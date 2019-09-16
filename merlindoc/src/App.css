@@ -104,3 +104,13 @@ body {
   height: 400px;
   margin-left: 2%;
 }
+
+.pagination {
+  display: flex;
+}
+
+.pagination li {
+  list-style: none;
+  margin-left: 5px;
+  margin-right: 5px;
+}
