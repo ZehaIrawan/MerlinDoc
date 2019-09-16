@@ -6,7 +6,8 @@ import SearchBar from './SearchBar';
 const SearchResult = () => {
   return (
     <div>
-     <SearchBar />
+      <SearchBar />
+      <Filter></Filter>
       <Search />
     </div>
   );
