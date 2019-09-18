@@ -1,33 +1,99 @@
-body {
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .doctorCardContainer {
   text-align: left;
-  width: 100%;
-  border: 1px solid tomato;
-  margin-bottom: 50px;
+  background-color: #fff;
+  margin: 10px 80px 40px 40px;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  height: auto;
+  border-radius: 15px;
 }
 
-.body {
-  display: flex;
-  width: 100%;
+.doctorCardContainer h2 {
+  font-size: 20px;
+  color: #47495a;
+  margin-bottom: 20px;
+}
+
+.doctorCardContainer p {
+  font-size: 15px;
+  color: #47495a;
+  margin-bottom: 5px;
+}
+
+.doctorCardContainer h3 {
+  margin-top: 15px;
+}
+
+.phone {
+  float: right;
+}
+
+.phone h4 {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.phone h3 {
+  color: #15959a;
+  font-size: 24px;
+}
+
+body {
+  background-color: #eeeeee;
 }
 
 .filter {
-  width: 25%;
-  border: 1px solid maroon;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  float: left;
+  height: auto;
+  margin-left: 20px;
+}
+
+.filter h1 {
+  margin-bottom: 20px;
 }
 
 .searchForm {
+  background-image: linear-gradient(257deg, #1abec5, #007696);
   display: flex;
   flex-direction: column;
-  height: 200px;
+  height: 25vh;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
+.searchForm button {
+  margin-top: -200px;
+}
+
+.searchHome {
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0);
+  background-image: linear-gradient(257deg, #1abec5, #007696);
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
   border: 1px solid blueviolet;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2%;
+}
+
+.form {
+  margin-top: -30px;
 }
 
 .button {
@@ -37,10 +103,12 @@ body {
   cursor: pointer;
   outline: none;
   color: #fff;
-  background-color: #4caf50;
+  background-color: #1abec5;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 5px #999;
+  box-shadow: 0 3px #999;
+  font-size: 12px;
+  margin-right: 10px;
 }
 
 .button:hover {
@@ -60,21 +128,30 @@ body {
 }
 
 .search {
-  width: 100%;
-  margin-right: 50px;
+  width: 80%;
+  margin-left: 20%;
+  margin-bottom: 5%;
+}
+
+.loading {
+  height: 70vh;
+  padding: 250px;
+  padding-left: 50%;
 }
 
 .AutoCompleteText {
   width: 50%;
-  border: 1px solid grey;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 4px 1px rgba(0, 0, 0, 0.18);
+  /* border: 1px solid grey;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 4px 1px rgba(0, 0, 0, 0.18); */
 }
 
 .AutoCompleteText input {
+  margin-top: 20px;
   width: 99%;
   border: none;
   outline: none;
   padding: 10px 5px;
+  border-radius: 3px;
 }
 
 .AutoCompleteText ul::before {
@@ -82,6 +159,8 @@ body {
 }
 
 .AutoCompleteText ul {
+  margin-top: 50px;
+  background-color: #fff;
   list-style: none;
   text-align: left;
 }
@@ -91,7 +170,117 @@ body {
 }
 
 .suggest-container {
+  margin-left: 20%;
+  width: 50%;
+}
+
+.lost {
+  text-align: center;
+}
+
+.lost img {
+  height: 400px;
+  margin-left: 2%;
+}
+
+.pagination {
+  margin-left: 5%;
+  display: flex;
+}
+
+.pagination li {
+  list-style: none;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.page-link {
+  text-decoration: none;
+  color: #15959a;
+  border: 1px solid lightgrey;
+  padding: 10px;
+}
+
+.page-link:hover {
+  background-color: #15959a;
+  color: #fff;
+}
+
+footer {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+  /* position: absolute;
+  bottom: 0; */
+}
+
+footer li {
+  list-style: none;
+}
+
+footer h3 {
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 30%;
+}
+
+.nav {
+  height: 10vh;
+  line-height: 10vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav li {
+  list-style: none;
+  color: #6b7c93;
+}
+
+.nav svg {
+  color: #15959a;
+  margin-top: 10px;
+}
+
+.ads h3 {
+  margin-left: 5%;
+}
+
+.doctorText {
+}
+
+input[type='text'] {
+  height: 30px;
+  margin-bottom: 20px;
+  border: 3px;
+  outline: none;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+select {
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.filter button {
   margin: 0 auto;
-  width: 100%;
-  margin-left: 150px;
+  width: 100px;
+  height: 40px;
+  color: #fff;
+  background-color: #1abec5;
+  margin-bottom: 20px;
+}
+
+input[type='checkbox'] {
+  vertical-align: middle;
+}
+
+.gender {
+  margin-bottom: 10px;
 }
