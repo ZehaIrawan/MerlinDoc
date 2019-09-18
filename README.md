@@ -4,7 +4,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/538879af-2e1f-475a-9982-f47579d0bb2e/deploy-status)](https://app.netlify.com/sites/merlindoc/deploys)
 
-![Merlindash](https://i.imgur.com/Os5mttz.png)
+![Merlindash](https://i.imgur.com/p6uFOFt.png)
 
 ```bash
 # Install dependencies

@@ -13,7 +13,7 @@ const Search = ({ query }) => {
   const [doctor, setDoctor] = useState([]);
   const [IsLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage, setPostsPerPage] = useState(5);
+  const [postPerPage, setPostsPerPage] = useState(4);
 
   let url = `${API_URL}&location=${query.location}&gender=female&sort=rating-desc&skip=0&limit=20&user_key=${API_KEY}`;
 
