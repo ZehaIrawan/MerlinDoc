@@ -1,10 +1,14 @@
-import React,{Fragment} from 'react';
-
+import React, { Fragment } from 'react';
+import { GiHealthPotion } from 'react-icons/gi';
 const Navbar = () => {
   return (
     <Fragment>
       <ul className="nav">
-        <li>Logo</li>
+        <li>
+          <a href="/">
+            <GiHealthPotion size={40} />
+          </a>
+        </li>
         <li>About</li>
         <li>Directory</li>
         <li>Contact Us</li>

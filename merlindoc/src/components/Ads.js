@@ -4,8 +4,8 @@ import ads from '../data/ads';
 
 const Ads = () => {
   return (
-    <div>
-      <h3 style={{ color: 'blue' }}>Sponsored</h3>
+    <div className="ads">
+      <h3 style={{ color: '#15959a' }}>Sponsored</h3>
       {ads[0].data.map(doctor => (
         <DoctorCard
           key={doctor.profile.slug}

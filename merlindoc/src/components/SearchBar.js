@@ -35,7 +35,6 @@ const SearchBar = ({ query, updateInput }) => {
   return (
     <div>
       <div className="searchForm">
-        <h2>Search Form</h2>
         <AutoCompleteText />
         {/* <HideableText text="Dynamic Text!" /> */}
         <br />

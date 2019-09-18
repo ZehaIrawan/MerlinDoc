@@ -10,22 +10,27 @@ const Filter = () => {
       <input type="text" placeholder="Zip Code" />
       <label htmlFor="">Provider Category</label>
       <select>
-        <option value="volvo">Volvo</option>
+        <option value="volvo">Physician</option>
         <option value="saab">Saab</option>
         <option value="mercedes">Mercedes</option>
         <option value="audi">Audi</option>
       </select>
       <label htmlFor="">Speciality by provider category</label>
       <select>
-        <option value="volvo">Volvo</option>
+        <option value="volvo">Obstetrician/Gynecologist</option>
         <option value="saab">Saab</option>
         <option value="mercedes">Mercedes</option>
         <option value="audi">Audi</option>
       </select>
       <button>Hide advanced search</button>
-      Gender of healthcare provider
-      <input type="checkbox" name="vehicle" value="Bike"/> I have a bike<br/>
-  <input type="checkbox" name="vehicle" value="Car" /> I have a car<br/>
+      <p className="gender">Gender of healthcare provider</p>
+      <label htmlFor="">
+        <input type="checkbox" name="vehicle" value="Bike" /> Male
+      </label>
+      <label htmlFor="">
+        <input type="checkbox" name="vehicle" value="Car" /> Female
+      </label>
+      <br />
     </div>
   );
 };

@@ -1,10 +1,12 @@
 import React from 'react';
-
+import { GiHealthPotion } from 'react-icons/gi';
 const Footer = () => {
   return (
     <footer>
       <div className="logo">
-        <h3>Logo</h3>
+        <a href="/">
+          <GiHealthPotion size={40} style={{ color: '#15959a' }} />
+        </a>
         <p>
           Devias.io is a one-stop shop for finding healthcare providers across
           specialties. Finding a healthcare provider can be challenging.

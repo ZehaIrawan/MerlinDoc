@@ -7,7 +7,7 @@ const DoctorCard = props => {
       <div>
         <img src={profileImg} alt={profileImg} />
       </div>
-      <div>
+      <div className="doctorText">
         <h2>{name}</h2>
         <p>{specialties}</p>
         <h3>Address</h3>
@@ -24,7 +24,8 @@ const DoctorCard = props => {
         </button>
       </div>
       <div className="phone">
-        <h4>Call {phoneNumber}</h4>
+        <h4>CALL</h4>
+        <h3>{phoneNumber}</h3>
       </div>
     </div>
   );

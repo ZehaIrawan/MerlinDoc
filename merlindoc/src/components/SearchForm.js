@@ -47,7 +47,6 @@ const SearchForm = ({ updateInput }) => {
     <div>
       <Navbar />
       <div className="searchHome">
-        <h2>Search Form</h2>
         <AutoCompleteText />
         {/* <HideableText text="Dynamic Text!" /> */}
         <br />
