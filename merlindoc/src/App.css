@@ -6,15 +6,21 @@
 
 .doctorCardContainer {
   text-align: left;
-  width: 100%;
-  border: 1px solid tomato;
-  margin-bottom: 50px;
+  background-color: #fff;
+  margin: 40px 80px 40px 40px;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  height: auto;
 }
 
-/* .body {
-  display: flex;
-  width: 100%;
-} */
+.phone {
+  float: right;
+}
+
+body {
+  background-color: #eeeeee;
+}
 
 .filter {
   display: flex;
@@ -23,12 +29,22 @@
   float: left;
   border: 1px solid maroon;
   height: auto;
+  margin-left: 20px;
 }
 
 .searchForm {
   display: flex;
   flex-direction: column;
-  height: 200px;
+  height: 25vh;
+  border: 1px solid blueviolet;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchHome {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
   border: 1px solid blueviolet;
   justify-content: center;
   align-items: center;
@@ -66,6 +82,11 @@
 .search {
   width: 80%;
   margin-left: 20%;
+  margin-bottom: 5%;
+}
+
+.loading {
+  height: 70vh;
 }
 
 .AutoCompleteText {
@@ -116,4 +137,33 @@
   list-style: none;
   margin-left: 5px;
   margin-right: 5px;
+}
+
+footer {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+  /* position: absolute;
+  bottom: 0; */
+}
+
+footer li {
+  list-style: none;
+}
+
+.logo {
+  width: 30%;
+}
+
+.nav {
+  height: 10vh;
+  line-height: 10vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav li {
+  list-style: none;
 }

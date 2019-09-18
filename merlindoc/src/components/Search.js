@@ -15,7 +15,7 @@ const Search = ({ query }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage, setPostsPerPage] = useState(5);
 
-  let url = `${API_URL}&location=${query.location}&gender=female&sort=rating-desc&skip=0&limit=100&user_key=${API_KEY}`;
+  let url = `${API_URL}&location=${query.location}&gender=female&sort=rating-desc&skip=0&limit=20&user_key=${API_KEY}`;
 
   useEffect(() => {
     async function fetchData() {
@@ -27,7 +27,7 @@ const Search = ({ query }) => {
   }, [url]);
 
   if (IsLoading) {
-    return <p>Loading ...</p>;
+    return <div className="loading">Loading ...</div>;
   }
 
   // Get current posts
@@ -40,10 +40,11 @@ const Search = ({ query }) => {
 
   // Change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
-  
+
   return (
     <div className="search">
       <h1 style={{ color: 'blue', marginLeft: '25%' }}>Search</h1>
+      <Ads />
       {currentPosts.map(doctor => (
         <DoctorCard
           key={doctor.profile.slug}
@@ -54,8 +55,11 @@ const Search = ({ query }) => {
           phoneNumber={doctor.practices[0].phones[0].number}
         />
       ))}
-      <Ads />
-      <Pagination postsPerPage={postPerPage} totalPosts={doctor.data.data.length} paginate={paginate}/>
+      <Pagination
+        postsPerPage={postPerPage}
+        totalPosts={doctor.data.data.length}
+        paginate={paginate}
+      />
     </div>
   );
 };

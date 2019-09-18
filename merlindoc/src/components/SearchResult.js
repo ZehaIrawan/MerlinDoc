@@ -1,15 +1,19 @@
-import React from 'react';
+import React,{Fragment} from 'react';
 import Filter from './Filter';
+import Footer from './Footer';
+import Navbar from './Navbar';
 import Search from './Search';
 import SearchBar from './SearchBar';
 
 const SearchResult = () => {
   return (
-    <div>
+    <Fragment>
+      <Navbar />
       <SearchBar />
       <Filter></Filter>
       <Search />
-    </div>
+      <Footer />
+    </Fragment>
   );
 };
 

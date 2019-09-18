@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import AutoCompleteText from './auto/AutoCompleteText';
 import { updateInput } from './redux/actions';
 
-const API_KEY = process.env.REACT_APP_API_KEY
-const API_URL = process.env.REACT_APP_API_URL
+const API_KEY = process.env.REACT_APP_API_KEY;
+const API_URL = process.env.REACT_APP_API_URL;
 
 const SearchBar = ({ query, updateInput }) => {
   useEffect(() => {
@@ -34,7 +34,7 @@ const SearchBar = ({ query, updateInput }) => {
 
   return (
     <div>
-       <div className="searchForm">
+      <div className="searchForm">
         <h2>Search Form</h2>
         <AutoCompleteText />
         {/* <HideableText text="Dynamic Text!" /> */}
@@ -66,7 +66,7 @@ const SearchBar = ({ query, updateInput }) => {
 };
 
 const mapStateToProps = state => ({
- query: state.search.query,
+  query: state.search.query,
 });
 
 const mapDispatchToProps = {
