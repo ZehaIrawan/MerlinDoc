@@ -43,10 +43,10 @@ const Search = ({ query }) => {
 
   return (
     <div className="search">
+    <Ads />
       <h1 style={{ color: '#15959a', marginLeft: '25%' }}>
-        {`Search result for ${query.location}`}
+        {`Search results for ${query.location}`}
       </h1>
-      <Ads />
       {currentPosts.map(doctor => (
         <DoctorCard
           key={doctor.profile.slug}
