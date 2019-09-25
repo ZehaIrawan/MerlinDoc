@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { GiHealthPotion } from 'react-icons/gi';
+import { Link } from 'react-router-dom';
 const Navbar = () => {
   return (
     <Fragment>
@@ -9,11 +10,15 @@ const Navbar = () => {
             <GiHealthPotion size={40} />
           </a>
         </li>
-        <li>About</li>
-        <li>Directory</li>
-        <li>Contact Us</li>
-        <li>Add a provider listing</li>
-        <li>Provider Login</li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About Us</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact Us</Link>
+        </li>
       </ul>
     </Fragment>
   );

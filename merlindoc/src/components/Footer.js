@@ -1,5 +1,6 @@
 import React from 'react';
 import { GiHealthPotion } from 'react-icons/gi';
+import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer>
@@ -14,24 +15,50 @@ const Footer = () => {
       </div>
       <ul>
         <h3>FEATURES</h3>
-        <li>Find Doctors</li>
-        <li>Add a provider listing</li>
-        <li>About</li>
-        <li>Mission</li>
+        <li>
+          <Link to="/">Find Doctors</Link>
+        </li>
+        <li>
+          <Link to="/about">About Us</Link>
+        </li>
       </ul>
       <ul>
         <h3>COMPANY</h3>
-        <li>About Us</li>
-        <li>Pricing</li>
-        <li>Careers</li>
-        <li>Contact Us</li>
+        <li>
+          <Link to="/contact">Contact Us</Link>
+        </li>
       </ul>
       <div>
         <h3>FOLLOW</h3>
         <ul>
-          <li>Twitter</li>
-          <li>LinkedIn</li>
-          <li>FB</li>
+          <li>
+            <a
+              href="https://www.twitter.com/zehairawan"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Twitter
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://www.linkedin.com/in/zehairawan/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/JangkarBumi"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Github
+            </a>
+          </li>
         </ul>
       </div>
     </footer>

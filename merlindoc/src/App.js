@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import store from '../src/components/redux/store';
 import SearchForm from '../src/components/SearchForm';
 import './App.css';
+import About from './components/About';
+import Contact from './components/Contact';
 import NotFound from './components/NotFound';
 import SearchResult from './components/SearchResult';
 
@@ -15,6 +17,8 @@ function App() {
           <Switch>
             <Route exact path="/" component={SearchForm} />
             <Route exact path="/results" component={SearchResult} />
+            <Route exact path="/contact" component={Contact} />
+            <Route exact path="/about" component={About} />
             <Route component={NotFound} />
           </Switch>
         </Fragment>
