@@ -21,6 +21,9 @@ Create .env file and add these environtment variables
 REACT_APP_API_KEY= your_betterdoctor_key
 REACT_APP_API_URL=https://api.betterdoctor.com/
 ```
+## Future Improvements
+
+- Filter functionality in the search results page
 
 ## Contributors
 
