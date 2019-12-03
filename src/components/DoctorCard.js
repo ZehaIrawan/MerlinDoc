@@ -5,7 +5,7 @@ const DoctorCard = props => {
   return (
     <div className="doctorCardContainer">
       <div>
-        <img src={profileImg} alt={profileImg} />
+        <img src={profileImg} alt="doctor-profile"/>
       </div>
       <div className="doctorText">
         <h2>{name}</h2>
